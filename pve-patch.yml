@@ -1,0 +1,28 @@
+---
+- name: 'Proxmox 6.x "No Subscription" Nag Remove'
+  hosts: all
+  tasks:
+    - name: 'Remove pop-up on login & update'
+      blockinfile:
+        backup: true
+        path: /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+        insertafter: 'checked\_command\:\ function\(orig_cmd\)\ \{'
+        block: |
+              orig_cmd();
+              return;
+        state: present
+        marker: '    // {mark} ANSIBLE MANAGED BLOCK'
+
+    - name: 'Remove "No subscription" message in "Summary"'
+      replace:
+        backup: true
+        path: /usr/share/pve-manager/js/pvemanagerlib.js
+        regexp: 'title\:\ gettext\(.No\ Subscription.\)\,'
+        replace: 'title: gettext("PWNED"),'
+
+    - name: 'Change icon in "Summary"'
+      replace:
+        backup: true
+        path: /usr/share/pve-manager/js/pvemanagerlib.js
+        regexp: 'iconCls\:\ PVE\.Utils\.get\_health\_icon\(.critical.\,\ true\)\,'
+        replace: 'iconCls: "fa fa-5x good fa-angellist",'

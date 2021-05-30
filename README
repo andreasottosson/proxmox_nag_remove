@@ -1,0 +1,15 @@
+# Proxmox VE 6.x subscription nag removal
+
+Pre-reqs
+- SSH access to Proxmox
+- Ansible installed on your computer
+
+How-to
+1. Run ./run.sh
+2. Enter Proxmox IP
+3. Enter SSH password
+4. Done...
+
+Buy this software if you use it professionally! This is just to make life easier in home-labs.
+
+I <3 Proxmox!
