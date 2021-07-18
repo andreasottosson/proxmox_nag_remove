@@ -1,4 +1,4 @@
-# Proxmox VE 6.x subscription nag removal
+# Proxmox VE 6.x/7.x subscription nag removal
 
 Pre-reqs
 - SSH access to Proxmox
