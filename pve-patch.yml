@@ -1,5 +1,5 @@
 ---
-- name: 'Proxmox 6.x "No Subscription" Nag Remove'
+- name: 'Proxmox 6.x/7.x "No Subscription" Nag Remove'
   hosts: all
   tasks:
     - name: 'Remove pop-up on login & update'
@@ -18,7 +18,7 @@
         backup: true
         path: /usr/share/pve-manager/js/pvemanagerlib.js
         regexp: 'title\:\ gettext\(.No\ Subscription.\)\,'
-        replace: 'title: gettext("PWNED"),'
+        replace: 'title: gettext("PEACE"),'
 
     - name: 'Change icon in "Summary"'
       replace:
